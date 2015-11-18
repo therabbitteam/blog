@@ -168,4 +168,11 @@ gulp.task('server', ['default', 'watch'], function(callback) {
   });
 });
 
+gulp.task('connect', function() {
+  connect.server({
+    root: site.metalsmith.config.destRoot,
+    livereload: true
+  });
+});
+
 gulp.task('default', ['vendor', 'scripts', 'styles', 'metalsmith']);
