@@ -1,4 +1,3 @@
-// Common
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var gulp = require('gulp');
@@ -16,20 +15,23 @@ var site = require('./site');
 var Handlebars = require('handlebars');
 var HandlebarsLib = require('./lib/handlebars')(Handlebars);
 
+// Metalsmith
+// Common
+var connect = require('gulp-connect');
+
 // Configuration
 var args = {
   build: !!argv.build,
   production: !!argv.production
 };
-
-// Metalsmith
 function setupMetalsmith(callback) {
   var ms = new Metalsmith(process.cwd());
   var msconfig = site.metalsmith || {};
-  var msplugins = msconfig.plugins || {};
 
+  var msplugins = msconfig.plugins || {};
   ms.source(msconfig.config.contentRoot);
   ms.destination(msconfig.config.destRoot);
+
   ms.metadata(msconfig.metadata);
 
   Object.keys(msplugins).forEach(function(key) {
@@ -53,26 +55,29 @@ function setupMetalsmith(callback) {
       ms.use(plugin(options));
     }
   });
-
   ms.build(function(err) {
     if (err) {
       console.log(err);
       return callback(err);
     }
+    console.log('Triggered metalsmith');
 
     callback();
   });
 }
 
+
 //Gulp tasks
 
 gulp.task('metalsmith', function(callback) {
   setupMetalsmith(callback);
+  gulp.src('./').pipe(connect.reload());
 });
 
 gulp.task('vendor', function() {
   return gulp.src(site.vendor)
-    .pipe(gulp.dest(path.join(__dirname, site.metalsmith.config.assetRoot, 'vendor')));
+    .pipe(gulp.dest(path.join(__dirname, site.metalsmith.config.assetRoot, 'vendor')))
+    .pipe(connect.reload())
 });
 
 gulp.task('styles', function() {
@@ -88,21 +93,22 @@ gulp.task('styles', function() {
       browsers: site.styles.prefix,
       cascade: false
     }))
-    .pipe(gulp.dest(path.join(__dirname, site.metalsmith.config.assetRoot, 'assets')));
+    .pipe(gulp.dest(path.join(__dirname, site.metalsmith.config.assetRoot, 'assets')))
+    .pipe(connect.reload());
 });
 
 gulp.task('webpack', function(callback) {
   var webpackPlugins = [
-      new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
-      }),
-      new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
-      new webpack.DefinePlugin({
-        "process.env": {
-          NODE_ENV: JSON.stringify(args.production ? 'production' : 'development'),
-        },
-      })
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(args.production ? 'production' : 'development'),
+      },
+    })
   ];
 
   if (args.production) {
@@ -139,7 +145,8 @@ gulp.task('webpack', function(callback) {
       return callback(err);
     }
 
-    //console.log(stats.toString({}));
+    gulp.src('./').pipe(connect.reload());
+
     callback();
   });
 });
@@ -156,29 +163,10 @@ gulp.task('watch', ['default'], function() {
     site.metalsmith.config.assetRoot+'/**/*'
   ], ['metalsmith']);
 });
-
 gulp.task('server', ['default', 'watch'], function(callback) {
-  var http = require('http');
-  var serveStatic = require('serve-static');
-  var finalhandler = require('finalhandler');
-
-  var serve = serveStatic(site.metalsmith.config.destRoot, {
-    "index": ['index.html', 'index.htm']
-  });
-
-  var server = http.createServer(function(req, res){
-    var done = finalhandler(req, res);
-    serve(req, res, done);
-  })
-
-  var serverPort = 3001;
-  if (argv.port) {
-    serverPort = parseInt(argv.port);
-  }
-
-  server.listen(serverPort, function() {
-    console.log("Server: http://localhost:%s", serverPort);
-    callback();
+  connect.server({
+    root: site.metalsmith.config.destRoot,
+    livereload: true
   });
 });
 
