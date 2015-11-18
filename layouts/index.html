@@ -1,0 +1,12 @@
+{{#extend "default"}}
+  {{#content "main"}}
+  <h1>Hello</h1>
+  <div>
+    {{ prismic.posts.results.[0].data.title.html }}
+    {{{ prismic.post.results.[0].data.contract_type.html }}}
+    {{{prismic.post.results.[0].data.description.html}}}
+    {{{prismic.post.results.[0].data.content.html}}}
+  </div>
+
+  {{/content}}
+{{/extend}}
