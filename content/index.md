@@ -11,5 +11,3 @@ prismic:
     query: '[[:d = at(document.type, "author")]]'
 function: home
 ---
-
-

@@ -18,7 +18,8 @@
     "production": "./node_modules/.bin/gulp --production",
     "build": "./node_modules/.bin/gulp --production --build && ./build.sh",
     "watch": "./node_modules/.bin/gulp watch",
-    "vendor": "./node_modules/.bin/gulp vendor"
+    "vendor": "./node_modules/.bin/gulp vendor",
+    "deploy": "surge -p ./build -d lab.rabbitlearn.com"
   },
   "devDependencies": {
     "babel-core": "^5.0.0",
