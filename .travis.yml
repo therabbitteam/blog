@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "4.2"
+before_install:
+  - sudo apt-get install graphicsmagick
+script:
+  - npm run production
+after_success:
+  - npm run deploy
+cache:
+  directories:
+    - node_modules
