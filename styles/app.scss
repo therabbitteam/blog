@@ -1,23 +1,35 @@
-// Variables
-@import "variables";
-@import "../node_modules/bootstrap/scss/variables";
+//// Variables
+//@import "variables";
+//@import "../node_modules/bootstrap/scss/variables";
+//
+//// Mixins / Normalize
+//@import "../node_modules/bootstrap/scss/mixins";
+//@import "../node_modules/bootstrap/scss/normalize";
+//@import "../node_modules/bootstrap/scss/print";
+//@import "../node_modules/bootstrap/scss/reboot";
+//@import "../node_modules/bootstrap/scss/type";
+//
+//// Structure
+//@import "layout/global";
+//@import "layout/container";
+//@import "layout/header";
+//@import "layout/content";
+//@import "layout/footer";
+//
+//// Components
+//@import "components/buttons";
+//
+//// Pages
+//@import "pages/home";
 
-// Mixins / Normalize
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/normalize";
-@import "../node_modules/bootstrap/scss/print";
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
+.image.featured img {
+  width: 100%;
+  height: auto;
+}
 
-// Structure
-@import "layout/global";
-@import "layout/container";
-@import "layout/header";
-@import "layout/content";
-@import "layout/footer";
-
-// Components
-@import "components/buttons";
-
-// Pages
-@import "pages/home";
+.author img {
+  border-radius: 100%;
+  display: block;
+  width: 5em !important;
+  height: auto;
+}

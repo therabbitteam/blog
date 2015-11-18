@@ -1,15 +1,12 @@
 ---
-title: Trang Chủ
-url: /
-description: Index Page
-layout: index.html
-permalink: false
+layout: blog-post.html
 prismic:
-  post:
+  tag:
     query: '[[:d = at(document.type, "posts")]]'
+    collection:
+      fileExtension: html
   author:
     query: '[[:d = at(document.type, "author")]]'
-function: home
 ---
 
-
+This will file contain blog post layout

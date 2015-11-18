@@ -1,0 +1,37 @@
+<section id="sidebar">
+
+  <!-- Intro -->
+  <section id="intro">
+    <a href="#" class="logo"><img src="/images/logo.jpg" alt="" /></a>
+    <header>
+      <h2>{{ sitedata.name }}</h2>
+      <p>{{ sitedata.slogan }}</p>
+    </header>
+  </section>
+  <!--sidebar-unused-->
+  <!-- About -->
+  <section class="blurb">
+    <h2>About</h2>
+    <p>{{sitedata.about}}</p>
+    <ul class="actions">
+      <li><a href="#" class="button">Learn More</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <section id="footer">
+    <ul class="icons">
+      {{#if sitedata.social.facebook}}
+        <li><a href="{{sitedata.social.facebook}}" class="fa-facebook"><span class="label">Facebook</span></a></li>
+      {{/if}}
+      <!--<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>-->
+      <!--<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>-->
+      <!--<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>-->
+      {{#if sitedata.social.mail}}
+        <li><a href="{{sitedata.social.mail}}" class="fa-envelope"><span class="label">Email</span></a></li>
+      {{/if}}
+    </ul>
+    <p class="copyright">&copy; {{ sitedata.name }}. Design: <a href="http://html5up.net">HTML5 UP</a>. </p>
+  </section>
+
+</section>

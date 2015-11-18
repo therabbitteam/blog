@@ -4,30 +4,48 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{{title}}</title>
+    <title>{{title}} - {{sitedata.name}}</title>
     <meta name="description" content="{{ description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="/assets/app.css">
+    <!--[if lte IE 8]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
   </head>
   <body data-function="{{function}}">
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <div id="wrapper">
+      {{#block "header"}}
+        {{> header}}
+      {{/block}}
 
-    {{#block "header"}}
-    {{> header}}
-    {{/block}}
+      {{#block "menu"}}
+      {{> menu}}
+      {{/block}}
 
-    {{#block "main"}}
-    {{{contents}}}
-    {{/block}}
+      {{#block "main"}}
+        {{{contents}}}
+      {{/block}}
 
-    {{#block "footer"}}
-    {{> footer}}
-    {{/block}}
+      {{#block "footer"}}
+        {{> footer}}
+      {{/block}}
 
+      {{#block "sidebar"}}
+      {{> sidebar}}
+      {{/block}}
+    </div>
     <script src="/assets/app.js" async></script>
     {{#block "scripts"}}{{/block}}
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/main.js"></script>
+
   </body>
 </html>

@@ -1,12 +1,39 @@
 {{#extend "default"}}
   {{#content "main"}}
-  <h1>Hello</h1>
-  <div>
-    {{ prismic.posts.results.[0].data.title.html }}
-    {{{ prismic.post.results.[0].data.contract_type.html }}}
-    {{{prismic.post.results.[0].data.description.html}}}
-    {{{prismic.post.results.[0].data.content.html}}}
-  </div>
+  <div id="main">
+    {{#each prismic.post.results}}
+    <article class="post">
+      <header>
+        <div class="title">
+          <h2><a href="{{ linkTo this }}">{{{ this.data.title.html }}}</a></h2>
+          <p>{{{ this.data.description.html }}}</p>
+        </div>
+        <div class="meta">
+          <time class="published" datetime="2015-11-01">lala</time>
+          {{{author this.data.author ../../prismic/author }}}
+        </div>
+      </header>
+      <a href="#" class="image featured">
+        {{{ image this.data.image true}}}
+      </a>
+      <p>{{{truncate this.data.body.html}}}</p>
+      <footer>
+        <ul class="actions">
+          <li><a href="{{ linkTo this }}" class="button big">Continue Reading</a></li>
+        </ul>
+        <ul class="stats">
+          {{#each this.tags}}
+          <li>{{{tag this}}}</li>
+          {{/each}}
+        </ul>
+      </footer>
+    </article>
+    {{/each}}
 
+    <ul class="actions pagination">
+      <li><a href="" class="disabled button big previous">Previous Page</a></li>
+      <li><a href="#" class="button big next">Next Page</a></li>
+    </ul>
+  </div>
   {{/content}}
 {{/extend}}

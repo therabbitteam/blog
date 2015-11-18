@@ -1,7 +1,32 @@
 {{#extend "default"}}
   {{#content "main"}}
+    <div id="main">
 
-    {{{contents}}}
-
+      {{#each prismic.post.results}}
+      <article class="post">
+        <header>
+          <div class="title">
+            <h2><a href="/">{{{ this.data.title.html }}}</a></h2>
+            <p>{{{ this.data.description.html }}}</p>
+          </div>
+          <div class="meta">
+            <time class="published" datetime="2015-11-01">{{{ this.data.date }}}</time>
+            {{{author this.data.author ../../prismic/author }}}
+          </div>
+        </header>
+        <a href="#" class="image featured">
+          {{{image this.data.image true}}}
+        </a>
+        <p>{{{this.data.body.html}}}</p>
+        <footer>
+          <ul class="stats">
+            {{#each this.tags}}
+            <li>{{{tag this}}}</li>
+            {{/each}}
+          </ul>
+        </footer>
+      </article>
+      {{/each}}
+    </div>
   {{/content}}
 {{/extend}}

@@ -60,8 +60,7 @@ function setupMetalsmith(callback) {
       console.log(err);
       return callback(err);
     }
-    console.log('Triggered metalsmith');
-
+    gulp.src('./').pipe(connect.reload());
     callback();
   });
 }
@@ -71,7 +70,6 @@ function setupMetalsmith(callback) {
 
 gulp.task('metalsmith', function(callback) {
   setupMetalsmith(callback);
-  gulp.src('./').pipe(connect.reload());
 });
 
 gulp.task('vendor', function() {
