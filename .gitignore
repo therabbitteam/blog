@@ -3,5 +3,6 @@ npm-debug.log
 build
 sources/assets/*.js
 sources/assets/*.css
+sources/images/content/*
 sources/vendor
 .tmp
