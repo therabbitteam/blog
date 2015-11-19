@@ -19,12 +19,12 @@ module.exports = function(author, authorList) {
 
     if (author.id == id) {
       var name = author.data.name.json.blocks[0].text;
-      debug(author.data.name.json.blocks[0]);
       var image = author.data.avatar;
+
       var link = linkTo(author);
 
-      render = '<a href="' + link + '" class="author"><span class="name">' +
-                    + name + '</span>' + image.html+'</a>';
+      render = '<a href="' + link + '" class="author"><span class="name">'
+                + name + '</span>' + image.html+'</a>';
 
       return true;
     }
