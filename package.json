@@ -55,7 +55,6 @@
     "webpack": "^1.12.1"
   },
   "dependencies": {
-    "bootstrap": "git@github.com:twbs/bootstrap.git#v4.0.0-alpha",
     "jquery": "^2.1.4",
     "underscore.string": "^3.2.2"
   }
