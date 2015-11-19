@@ -71,6 +71,9 @@ module.exports = {
         "directory": "./layouts",
         "partials": "./layouts/partials"
       },
+      "./lib/metalsmith-downloadFile": {
+
+      },
       "metalsmith-assets": {
         "source": "./sources",
         "destination": "./"

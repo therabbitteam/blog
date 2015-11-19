@@ -1,20 +1,15 @@
-module.exports = function(object, showDimension) {
+module.exports = function(object, width, height) {
   if (!object) {
     return;
   }
   // TODO: Auto download and manipulate image, save it to local file
   var image = object.json.main;
 
-  showDimension = showDimension || true;
-
-  var height = image.height;
-  var width = image.width;
+  height = image.height || height;
+  width = width || image.width;
   var url = image.url;
   var alt = image.alt;
 
-  if (showDimension)
-    return '<img src="'+ url +'" height="' + height + '" width="'
-                + width + '" alt="' + alt + '" />';
-
-  return '<img src="'+ url +' alt="' + alt + '" />';
-}
+  return '<img src="'+ url +'" data-type="prismic" data-height="' + height + '" data-width="'
+              + width + '" alt="' + alt + '" />';
+};

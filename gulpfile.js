@@ -158,6 +158,7 @@ gulp.task('watch', ['default'], function() {
   gulp.watch([
     site.metalsmith.config.contentRoot+'/**/*',
     site.metalsmith.config.layoutRoot+'/**/*',
+    './lib/**/*',
     site.metalsmith.config.assetRoot+'/**/*'
   ], ['metalsmith']);
 });
