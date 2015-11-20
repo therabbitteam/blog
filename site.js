@@ -43,7 +43,7 @@ module.exports = {
       },
       //"metalsmith-excerpts": {},
       "metalsmith-metadata": {
-        "sitedata": "config.yml"
+        "config": "config.yml"
       },
       "metalsmith-register-helpers": {
         "directory": "./layouts/helpers"
