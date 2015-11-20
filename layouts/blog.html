@@ -5,6 +5,7 @@
 
     <ul>
     {{#each pagination.files}}
+      {{{this}}}
       <li>
         <h2><a href="/{{{ this.path }}}/" rel="bookmark">{{this.title}}</a></h2>
         {{{this.excerpt}}}

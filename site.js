@@ -10,7 +10,7 @@ module.exports = {
   "metalsmith": {
     "metadata": {
       "site": {
-        "url": "https://github.com/evocode/metalsmith-base",
+        "url": "http://lab.rabbitlearn.com",
       }
     },
     "config": {
@@ -43,7 +43,8 @@ module.exports = {
       },
       //"metalsmith-excerpts": {},
       "metalsmith-metadata": {
-        "config": "config.yml"
+        "config": "config.yml",
+        "lang": "languages/vi.yml"
       },
       "metalsmith-register-helpers": {
         "directory": "./layouts/helpers"
@@ -51,21 +52,21 @@ module.exports = {
       "metalsmith-permalinks": {
         "pattern": ":collection/:title"
       },
-      //"metalsmith-collections": {
-      //  "blog": {
-      //    "sortBy": "date",
-      //    "reverse": true
-      //  }
-      //},
-      //"metalsmith-pagination": {
-      //  "collections.blog": {
-      //    "perPage": 6,
-      //    "layout": "blog.html",
-      //    "first": "blog/index.html",
-      //    "noPageOne": true,
-      //    "path": "blog/:num/index.html"
-      //  }
-      //},
+      "metalsmith-collections": {
+        "blog": {}
+      },
+      "metalsmith-pagination": {
+        "collections.blog": {
+          "perPage": 1,
+          "layout": "index.html",
+          "first": "index.html",
+          "noPageOne": true,
+          "path": "page/:num/index.html",
+          "pageMetadata": {
+            "title": "Trang chủ"
+          }
+        }
+      },
       "metalsmith-layouts": {
         "engine": "handlebars",
         "directory": "./layouts",

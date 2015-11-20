@@ -1,5 +1,6 @@
 ---
 layout: blog-post.html
+collection: blog
 prismic:
   post:
     query: '[[:d = at(document.type, "posts")]]'
