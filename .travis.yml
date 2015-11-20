@@ -1,8 +1,7 @@
 language: node_js
 node_js:
   - "4.2"
-before_install:
-  - sudo apt-get install graphicsmagick
+sudo: false
 script:
   - npm run production
 after_success:
