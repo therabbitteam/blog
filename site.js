@@ -67,6 +67,8 @@ module.exports = {
           }
         }
       },
+      "./lib/map-data-to-file-metadata": {},
+      //"./debug": {},
       "metalsmith-layouts": {
         "engine": "handlebars",
         "directory": "./layouts",
