@@ -46,7 +46,7 @@ module.exports = {
       //"metalsmith-excerpts": {},
       "metalsmith-metadata": {
         "config": "config.yml",
-        "lang": "languages\\vi.yml".replace(/\//g, path.sep)
+        "lang": "languages\\vi.yml".replace(/(\/|\\)/g, path.sep)
       },
       "metalsmith-register-helpers": {
         "directory": "./layouts/helpers"
