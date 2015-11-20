@@ -44,7 +44,7 @@ module.exports = {
       //"metalsmith-excerpts": {},
       "metalsmith-metadata": {
         "config": "config.yml",
-        "lang": "languages/vi.yml"
+        "lang": "languages\\vi.yml"
       },
       "metalsmith-register-helpers": {
         "directory": "./layouts/helpers"
@@ -57,7 +57,7 @@ module.exports = {
       },
       "metalsmith-pagination": {
         "collections.blog": {
-          "perPage": 1,
+          "perPage": 10,
           "layout": "index.html",
           "first": "index.html",
           "noPageOne": true,

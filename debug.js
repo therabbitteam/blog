@@ -5,7 +5,7 @@ function plugin(opts) {
 
   return function (files, metalsmith, done) {
 
-    console.log(files['index.html'].pagination.files[0].prismic);
+    console.log(files);
     console.log(metalsmith);
 
     done();
