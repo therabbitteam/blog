@@ -1,4 +1,5 @@
 var linkTo = require('./layouts/helpers/linkTo');
+var path = require('path')
 
 module.exports = {
   "vendor": [],
@@ -34,6 +35,7 @@ module.exports = {
           return '/' + doc.type + '/' + doc.id + '/' +  ctx.path.replace(/^.*(\\|\/|\:)/, '');
         }
       },
+      "./lib/map-data-to-file-metadata": {},
       //"metalsmith-drafts": {},
       "metalsmith-markdown": {
         "smartypants": true,
@@ -44,13 +46,14 @@ module.exports = {
       //"metalsmith-excerpts": {},
       "metalsmith-metadata": {
         "config": "config.yml",
-        "lang": "languages\\vi.yml"
+        "lang": "languages\\vi.yml".replace(/\//g, path.sep)
       },
       "metalsmith-register-helpers": {
         "directory": "./layouts/helpers"
       },
       "metalsmith-permalinks": {
-        "pattern": ":collection/:title"
+        "pattern": ":collection/:slug",
+        "relative": false
       },
       "metalsmith-collections": {
         "blog": {}
@@ -67,8 +70,20 @@ module.exports = {
           }
         }
       },
-      "./lib/map-data-to-file-metadata": {},
-      //"./debug": {},
+      "metalsmith-tags": {
+        "handle": "tags",
+        "path": "tag/:tag/index.html",
+        "pathPage": "tag/:tag/:num/index.html",
+        "perPage": 10,
+        "layout": "index.html",
+        "sortBy": "date",
+        "reverse": true,
+        "skipMetadata": false,
+        "slug": {
+          "mode": "rfc3986"
+        }
+      },
+      "./lib/set-title-for-tag-page": {},
       "metalsmith-layouts": {
         "engine": "handlebars",
         "directory": "./layouts",

@@ -1,5 +1,6 @@
 {{#extend "default"}}
   {{#content "main"}}
+
   <div id="main">
     {{#each pagination.files}}
       {{#each this.prismic.post.results}}
@@ -10,7 +11,9 @@
               <p>{{{ this.data.description.html }}}</p>
             </div>
             <div class="meta">
-              <time class="published" datetime="{{#formatDate this.data.date.json.value}}{{/formatDate}}">{{#formatDate this.data.date.json.value format="DD-MM-YYYY"}}{{/formatDate}}</time>
+              <time class="published" datetime="{{#formatDate this.data.date.json.value}}{{/formatDate}}">
+                {{#formatDate this.data.date.json.value format="DD-MM-YYYY"}}{{/formatDate}}
+              </time>
               {{{author this.data.author ../prismic/author }}}
             </div>
           </header>
