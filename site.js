@@ -22,8 +22,17 @@ module.exports = {
       "destRoot": "./build"
     },
     "plugins": {
-      "contentful-metalsmith": {
-        "accessToken" : process.env.CONTENTFUL_ACCESS_TOKEN
+      "metalsmith-prismic": {
+        "url": "https://rabbitlearn.prismic.io/api",
+        "linkResolver": function (ctx, doc) {
+          if (doc.isBroken || !ctx.path) return;
+
+          if (doc.data) {
+            return linkTo(doc);
+          }
+          // create file based off of type, id and the filename (extracted from the full path)
+          return '/' + doc.type + '/' + doc.id + '/' +  ctx.path.replace(/^.*(\\|\/|\:)/, '');
+        }
       },
       //"metalsmith-drafts": {},
       "metalsmith-markdown": {
