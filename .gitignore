@@ -5,3 +5,4 @@ sources/assets/*.js
 sources/assets/*.css
 sources/vendor
 .tmp
+.env

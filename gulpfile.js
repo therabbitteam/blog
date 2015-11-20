@@ -24,6 +24,10 @@ var args = {
   build: !!argv.build,
   production: !!argv.production
 };
+
+// Load environment variables
+require('dotenv').load();
+
 function setupMetalsmith(callback) {
   var ms = new Metalsmith(process.cwd());
   var msconfig = site.metalsmith || {};
