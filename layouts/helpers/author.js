@@ -9,7 +9,7 @@ module.exports = function(author, authorList) {
   author = author.json;
 
   if (author.type != 'author')
-    throw Error('This is not an author object');
+    throw new Error('This is not an author object');
 
   // Get author id
   var id = author.id;
