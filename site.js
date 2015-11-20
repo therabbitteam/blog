@@ -56,7 +56,10 @@ module.exports = {
         "relative": false
       },
       "metalsmith-collections": {
-        "blog": {}
+        "blog": {
+          "sortBy": "date",
+          "reverse": true
+        }
       },
       "metalsmith-pagination": {
         "collections.blog": {
