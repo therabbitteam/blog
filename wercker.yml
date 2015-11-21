@@ -1,0 +1,22 @@
+box: node
+
+build:
+  steps:
+    - npm-install
+
+    # A custom script step, name value is used in the UI
+    # and the code value contains the command that get executed
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
+          
+    - script:
+        name: run metalsmith build
+        code: npm run production
+deploy:
+  steps:
+    - script:
+        name: deploy to surge
+        code: npm run deploy
