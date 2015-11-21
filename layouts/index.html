@@ -38,14 +38,10 @@
     <ul class="actions pagination">
       {{#if pagination.previous}}
       <li><a href="/{{removeIndex pagination.previous.path}}" class="button big previous">{{lang.previous}}</a></li>
-      {{else}}
-      <li><a href="#" class="disabled button big previous">{{lang.previous}}</a></li>
       {{/if}}
 
       {{#if pagination.next}}
       <li><a href="/{{removeIndex pagination.next.path}}" class="button big next">{{lang.next}}</a></li>
-      {{else}}
-      <li><a href="#" class="disabled button big next">{{lang.next}}</a></li>
       {{/if}}
     </ul>
     {{/if}}
