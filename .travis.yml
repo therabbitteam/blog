@@ -5,6 +5,7 @@ sudo: false
 script:
   - npm run production
 after_success:
+  - npm install surge
   - npm run deploy
 cache:
   directories:
