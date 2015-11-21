@@ -3,15 +3,11 @@ box: node
 build:
   steps:
     - npm-install
-
-    # A custom script step, name value is used in the UI
-    # and the code value contains the command that get executed
     - script:
         name: echo nodejs information
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
-          
     - script:
         name: run metalsmith build
         code: npm run production
@@ -22,8 +18,8 @@ deploy:
   box: nodesource/trusty
   steps:
     - script:
-      name: NPM install
+      name: Install Surge
       code: npm install -g surge
     - script:
-      name: push to Surge.sh
-      code: surge build/ lab.rabbitlearn.com --token $SURGE_TOKEN
+      name: Push to surge.sh
+      code: surge build/ lab.rabbitlearn.com
