@@ -15,6 +15,12 @@ build:
     - script:
         name: run metalsmith build
         code: npm run production
+    - script:
+        name: check build folder
+        code: |
+          echo "$(ll ./build)"
+          ll ./build
+          ls ./build
 deploy:
   steps:
     - script:
