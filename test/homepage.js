@@ -1,12 +1,7 @@
 var connect = require('gulp-connect');
 var site = require('../site');
-var _ = require('lodash');
-const Browser = require('zombie');
-
-process.env.NODE_ENV = 'test';
-const PORT = _.random(5000, 6000);
-
-Browser.localhost('beta.rabbitlearn.com', PORT);
+var Browser = require('./browser').Browser;
+var PORT = require('./browser').PORT;
 
 describe('home page', function() {
   const browser = new Browser();
