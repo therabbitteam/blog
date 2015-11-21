@@ -1,14 +1,8 @@
 {
-  "name": "metalsmith-base",
+  "name": "rabbitlearn-blog",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "Patrick Heeney",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:evocode/metalsmith-base.git"
-  },
+  "author": "Khoa Nguyen",
+  "private": true,
   "homepage": "https://github.com/evocode/metalsmith-base",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,7 +10,6 @@
     "start": "./node_modules/.bin/gulp server",
     "debug": "DEBUG=metalsmith* ./node_modules/.bin/gulp",
     "production": "./node_modules/.bin/gulp --production",
-    "build": "./node_modules/.bin/gulp --production --build && ./build.sh",
     "watch": "./node_modules/.bin/gulp watch",
     "vendor": "./node_modules/.bin/gulp vendor",
     "deploy": "surge -p ./build -d lab.rabbitlearn.com"
