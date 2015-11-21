@@ -17,10 +17,7 @@ build:
         code: npm run production
     - script:
         name: check build folder
-        code: |
-          echo "$(ll ./build)"
-          ll ./build
-          ls ./build
+        code: ls ./build
 deploy:
   steps:
     - script:
