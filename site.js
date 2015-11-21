@@ -63,7 +63,7 @@ module.exports = {
         'terms': 5,
         'max': 5,
         'threshold': 0,
-        'pattern': 'blog/**',
+        'pattern': '**/index.html',
         'text': function(doc) {
           return String(doc.contents);
         }
