@@ -93,6 +93,11 @@ module.exports = {
           "mode": "rfc3986"
         }
       },
+      "metalsmith-wordcloud": {
+        category: 'tags',
+        reverse: false,
+        path: '/tag'
+      },
       "./lib/set-title-for-tag-page": {},
       "metalsmith-layouts": {
         "engine": "handlebars",
