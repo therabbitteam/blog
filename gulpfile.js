@@ -105,7 +105,7 @@ gulp.task('webpack', function(callback) {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(args.production ? 'production' : 'development'),
-      },
+      }
     })
   ];
 
