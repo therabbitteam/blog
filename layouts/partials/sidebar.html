@@ -18,22 +18,6 @@
     </ul>
   </section>
 
-  <!-- Footer -->
-  <section id="footer">
-    <ul class="icons">
-      {{#if config.social.facebook}}
-        <li><a href="{{config.social.facebook}}" class="fa-facebook"><span class="label">Facebook</span></a></li>
-      {{/if}}
-      <!--<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>-->
-      <!--<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>-->
-      <!--<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>-->
-      {{#if config.social.mail}}
-        <li><a href="{{config.social.mail}}" class="fa-envelope"><span class="label">Email</span></a></li>
-      {{/if}}
-    </ul>
-    <p class="copyright">&copy; {{ config.name }}. Design: <a href="http://html5up.net">HTML5 UP</a>. </p>
-  </section>
-
   <section>
     <h2>Tags</h2>
     {{#each cloud}}
@@ -44,4 +28,20 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <section id="footer">
+    <ul class="icons">
+      {{#if config.social.facebook}}
+      <li><a href="{{config.social.facebook}}" class="fa-facebook"><span class="label">Facebook</span></a></li>
+      {{/if}}
+      <!--<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>-->
+      <!--<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>-->
+      <!--<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>-->
+      {{#if config.social.mail}}
+      <li><a href="{{config.social.mail}}" class="fa-envelope"><span class="label">Email</span></a></li>
+      {{/if}}
+    </ul>
+    <p class="copyright">&copy; {{ config.name }}. Design: <a href="http://html5up.net">HTML5 UP</a>. </p>
+  </section>
+  
 </section>
