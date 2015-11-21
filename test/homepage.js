@@ -49,11 +49,26 @@ describe('home page', function() {
   });
 
   describe('#main should have posts', function() {
-    it('should have at least 2 posts', function() {
-      browser.assert.elements('article', { atLeast: 2 });
+    it('should have at least 5 posts', function() {
+      browser.assert.elements('article', { atLeast: 5 });
+    });
+
+    it('should have at least 2 "read more" buttons', function() {
+      browser.assert.elements('article ul.actions a.big.button', {atLeast: 5});
+    });
+
+    it('should have tags', function() {
+      browser.assert.elements('a.icon.fa-tag', {atLeast: 10});
+    });
+
+    it('should featured images', function() {
+      browser.assert.elements('a.image.featured', {atLeast: 2});
     });
   });
 
+  /*
+   * Test sidebar
+   */
   describe('#sidebar should widgets', function() {
     it('should have tags cloud', function() {
       browser.assert.elements('#sidebar #tags-cloud', 1);
@@ -65,7 +80,7 @@ describe('home page', function() {
 
     it('should have sidebar about', function() {
       browser.assert.elements('#sidebar .blurb', 1);
-      browser.assert.evaluate("$('#sidebar .blurb h2').text()", "About");
+      browser.assert.text('#sidebar .blurb h2', 'About');
     });
   });
 
