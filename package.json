@@ -5,7 +5,7 @@
   "private": true,
   "homepage": "https://github.com/evocode/metalsmith-base",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha .",
     "dev": "./node_modules/.bin/gulp",
     "start": "./node_modules/.bin/gulp server",
     "debug": "DEBUG=metalsmith* ./node_modules/.bin/gulp",

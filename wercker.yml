@@ -12,6 +12,10 @@ build:
         name: run metalsmith build
         code: npm run production
     - script:
+        name: install mocha for testing
+        code: npm install --global mocha
+    - npm-test
+    - script:
         name: copy build to the to-be-deployed directory
         code: cp -a ./. $WERCKER_OUTPUT_DIR
 deploy:
