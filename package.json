@@ -5,7 +5,7 @@
   "private": true,
   "homepage": "https://github.com/evocode/metalsmith-base",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha .",
     "dev": "./node_modules/.bin/gulp",
     "start": "./node_modules/.bin/gulp server",
     "debug": "DEBUG=metalsmith* ./node_modules/.bin/gulp",
@@ -46,7 +46,8 @@
     "moment": "^2.10.6",
     "request": "^2.66.0",
     "slug": "^0.9.1",
-    "webpack": "^1.12.1"
+    "webpack": "^1.12.1",
+    "zombie": "^4.2.1"
   },
   "dependencies": {
     "font-awesome": "^4.4.0",
