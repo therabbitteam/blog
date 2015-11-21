@@ -46,7 +46,8 @@
     "moment": "^2.10.6",
     "request": "^2.66.0",
     "slug": "^0.9.1",
-    "webpack": "^1.12.1"
+    "webpack": "^1.12.1",
+    "zombie": "^4.2.1"
   },
   "dependencies": {
     "font-awesome": "^4.4.0",
