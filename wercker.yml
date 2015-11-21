@@ -14,5 +14,4 @@ build:
           
     - script:
         name: run metalsmith build
-        code: |
-          - npm run production
+        code: npm run production
