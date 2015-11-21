@@ -19,4 +19,6 @@ deploy:
   steps:
     - script:
         name: deploy to surge
-        code: npm run deploy
+        code: |
+          echo "$(ll build)"
+          echo "$(npm run deploy)"
