@@ -1,5 +1,5 @@
 var linkTo = require('./layouts/helpers/linkTo');
-var path = require('path')
+var path = require('path');
 
 module.exports = {
   "vendor": [],
@@ -11,7 +11,7 @@ module.exports = {
   "metalsmith": {
     "metadata": {
       "site": {
-        "url": "http://lab.rabbitlearn.com",
+        "url": "http://beta.rabbitlearn.com",
       }
     },
     "config": {
@@ -36,14 +36,12 @@ module.exports = {
         }
       },
       "./lib/map-data-to-file-metadata": {},
-      //"metalsmith-drafts": {},
       "metalsmith-markdown": {
         "smartypants": true,
         "smartLists": true,
         "gfm": true,
         "tables": true
       },
-      //"metalsmith-excerpts": {},
       "metalsmith-metadata": {
         "config": "config.yml",
         "lang": "languages\\vi.yml".replace(/(\/|\\)/g, path.sep)
