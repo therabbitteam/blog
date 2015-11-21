@@ -16,12 +16,14 @@ build:
         name: run metalsmith build
         code: npm run production
     - script:
-        name: check build folder
-        code: ls ./build
+        name: copy build to the to-be-deployed directory
+        code: cp -a ./. $WERCKER_OUTPUT_DIR
 deploy:
+  box: nodesource/trusty
   steps:
     - script:
-        name: deploy to surge
-        code: |
-          echo "$(ll build)"
-          echo "$(npm run deploy)"
+      name: NPM install
+      code: npm install -g surge
+    - script:
+      name: push to Surge.sh
+      code: surge build/ lab.rabbitlearn.com --token $SURGE_TOKEN
