@@ -9,7 +9,7 @@ module.exports = function(object) {
   if (object.type == 'posts') {
     var title = object.data.title.json.blocks[0].text;
     // TODO: Make sure this is unique
-    return '/' + slugify(title).toLowerCase();
+    return '/blog/' + slugify(title).toLowerCase();
   }
 
   // Author type

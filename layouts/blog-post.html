@@ -1,12 +1,11 @@
 {{#extend "default"}}
   {{#content "main"}}
     <div id="main">
-
       {{#each prismic.post.results}}
       <article class="post">
         <header>
           <div class="title">
-            <h2><a href="{{linkTo this}}">{{{ this.data.title.html }}}</a></h2>
+            <h2><a href="/{{this.path}}">{{{ this.data.title.html }}}</a></h2>
             <p>{{{ this.data.description.html }}}</p>
           </div>
           <div class="meta">
@@ -16,12 +15,20 @@
             {{{author this.data.author ../../prismic/author }}}
           </div>
         </header>
-        <a href="this.data.image.json.main.url" class="image featured">
-          {{{image this.data.image true}}}
+        <a href="{{this.data.image.json.main.url}}" class="image featured">
+          {{image this.data.image}}
         </a>
         <p>{{{this.data.body.html}}}</p>
 
         <footer>
+
+          <ul class="related-posts">
+            <h3>{{../../lang.related-posts}}</h3>
+            {{#each ../../related}}
+            <li><a href="/{{this.path}}">{{this.title}}</a></li>
+            {{/each}}
+          </ul>
+
           <ul class="stats">
             {{#each this.tags}}
             <li>{{{tag this}}}</li>

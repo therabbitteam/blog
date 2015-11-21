@@ -49,14 +49,23 @@ module.exports = {
       "metalsmith-register-helpers": {
         "directory": "./layouts/helpers"
       },
-      "metalsmith-permalinks": {
-        "pattern": ":collection/:slug",
-        "relative": false
-      },
       "metalsmith-collections": {
         "blog": {
           "sortBy": "date",
           "reverse": true
+        }
+      },
+      "metalsmith-permalinks": {
+        "pattern": ":collection/:slug",
+        "relative": false
+      },
+      "metalsmith-related": {
+        'terms': 5,
+        'max': 5,
+        'threshold': 0,
+        'pattern': '**/index.html',
+        'text': function(doc) {
+          return String(doc.contents);
         }
       },
       "metalsmith-pagination": {

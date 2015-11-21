@@ -16,3 +16,12 @@
   width: 5em !important;
   height: auto;
 }
+
+ul.related-posts {
+  @extend ul.actions;
+  list-style: disc;
+
+  & li {
+    display: list-item;
+  }
+}

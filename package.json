@@ -39,6 +39,7 @@
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-prismic": "^0.8.1",
     "metalsmith-register-helpers": "^0.1.2",
+    "metalsmith-related": "0.0.5",
     "metalsmith-tags": "^1.0.0",
     "minimist": "^1.2.0",
     "moment": "^2.10.6",
