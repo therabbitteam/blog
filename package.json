@@ -41,6 +41,7 @@
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-related": "0.0.5",
     "metalsmith-tags": "^1.0.0",
+    "metalsmith-wordcloud": "0.0.3",
     "minimist": "^1.2.0",
     "moment": "^2.10.6",
     "request": "^2.66.0",

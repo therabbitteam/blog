@@ -34,4 +34,14 @@
     <p class="copyright">&copy; {{ config.name }}. Design: <a href="http://html5up.net">HTML5 UP</a>. </p>
   </section>
 
+  <section>
+    <h2>Tags</h2>
+    {{#each cloud}}
+      <a href="{{this.pth}}" style="font-size: {{tagCloud this.wght}}em">
+        {{this.ctg}} ({{this.wght}})&nbsp;
+      </a>
+      {{/each}}
+    </div>
+  </section>
+
 </section>
