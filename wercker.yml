@@ -14,5 +14,9 @@ build:
           
     - script:
         name: run metalsmith build
-        code: |
-          - npm run production
+        code: npm run production
+deploy:
+  steps:
+    - script:
+        name: deploy to surge
+        code: npm run deploy
