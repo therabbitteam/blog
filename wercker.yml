@@ -20,7 +20,7 @@ deploy:
   steps:
     - script:
       name: Install Surge
-      code: npm install surge
+      code: npm install --global surge
     - script:
       name: Push to surge.sh
       code: surge build/ $SURGE_DOMAIN
