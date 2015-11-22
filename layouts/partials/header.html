@@ -2,10 +2,15 @@
   <h1><a href="/">{{config.name}}</a></h1>
   <nav class="links">
     <ul>
-      <li><a href="/tag/nam-4">Năm 4</a></li>
-      <li><a href="/tag/nam-5">Năm 5</a></li>
-      <li><a href="/tag/nam-6">Năm 6</a></li>
-      <li><a href="{{config.social.facebook}}"><i class="fa fa-facebook"></i> Facebook</a></li>
+      {{#each headerLinks}}
+      <li>
+        <a href="{{this.link}}">
+          {{#if this.icon}}
+          <i class="{{this.icon}}"></i>
+          {{/if}}
+          {{this.title}}
+        </a></li>
+      {{/each}}
     </ul>
   </nav>
   <nav class="main">

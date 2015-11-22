@@ -43,7 +43,8 @@ module.exports = {
         "tables": true
       },
       "metalsmith-metadata": {
-        "config": "config.yml",
+        "config": "config\\config.yml".replace(/(\/|\\)/g, path.sep),
+        "headerLinks": "config\\header-link.yml".replace(/(\/|\\)/g, path.sep),
         "lang": "languages\\vi.yml".replace(/(\/|\\)/g, path.sep)
       },
       "metalsmith-register-helpers": {
