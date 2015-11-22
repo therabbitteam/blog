@@ -6,11 +6,7 @@ script:
   - npm run test
 after_success:
   - chmod +x deploy.sh
-deploy:
-  provider: script
-  script: ./deploy.sh
-  on:
-    branch: master
+  - ./deploy.sh
 cache:
   directories:
     - node_modules
