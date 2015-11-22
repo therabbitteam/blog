@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Khoa Nguyen",
   "private": true,
-  "homepage": "https://github.com/evocode/metalsmith-base",
+  "homepage": "https://github.com/therabbitteam/blog",
   "scripts": {
     "test": "mocha test",
     "dev": "./node_modules/.bin/gulp",
@@ -12,7 +12,7 @@
     "production": "./node_modules/.bin/gulp --production",
     "watch": "./node_modules/.bin/gulp watch",
     "vendor": "./node_modules/.bin/gulp vendor",
-    "deploy": "surge -p ./build -d lab.rabbitlearn.com"
+    "deploy": "surge -p ./build -d beta.rabbitlearn.com"
   },
   "devDependencies": {
     "async": "^1.5.0",
