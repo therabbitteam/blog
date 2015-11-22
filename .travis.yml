@@ -5,7 +5,7 @@ script:
   - npm run production
   - npm run test
 after_success:
-  - ./deploy
+  - ./deploy.sh
 cache:
   directories:
     - node_modules
