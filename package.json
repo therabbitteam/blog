@@ -52,6 +52,8 @@
   "dependencies": {
     "font-awesome": "^4.4.0",
     "jquery": "^2.1.4",
+    "mocha": "^2.3.4",
+    "surge": "^0.17.3",
     "underscore.string": "^3.2.2"
   }
 }

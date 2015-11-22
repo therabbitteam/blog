@@ -11,9 +11,6 @@ build:
     - script:
         name: run metalsmith build
         code: npm run production
-    - script:
-        name: install mocha for testing
-        code: npm install --global mocha
     - npm-test
     - script:
         name: copy build to the to-be-deployed directory
@@ -23,7 +20,7 @@ deploy:
   steps:
     - script:
       name: Install Surge
-      code: npm install -g surge
+      code: npm install surge
     - script:
       name: Push to surge.sh
       code: surge build/ $SURGE_DOMAIN
