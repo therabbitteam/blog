@@ -9,7 +9,7 @@ module.exports = function(author, authorList) {
   // TODO: Transform authors to site metadata
   // If none specific, default author will be call
   if (!author || author == undefined) return;
-  
+
   author = author.json;
 
   if (author.type != 'author')
