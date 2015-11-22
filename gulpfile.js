@@ -154,7 +154,7 @@ gulp.task('scripts', ['webpack']);
 gulp.task('watch', ['default'], function() {
   gulp.watch(['gulpfile.js', 'site.js'], ['default']);
   gulp.watch([site.metalsmith.config.styleRoot+'/**/*'], ['styles']);
-  gulp.watch([site.metalsmith.config.scriptRoot+'/**/*'], ['scripts']);
+  //gulp.watch([site.metalsmith.config.scriptRoot+'/**/*'], ['scripts']);
   gulp.watch([
     site.metalsmith.config.contentRoot+'/**/*',
     site.metalsmith.config.layoutRoot+'/**/*',
@@ -175,4 +175,4 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('default', ['vendor', 'scripts', 'styles', 'metalsmith']);
+gulp.task('default', ['vendor', 'styles', 'metalsmith']);
