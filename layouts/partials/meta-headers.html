@@ -1,0 +1,30 @@
+<title>{{title}} - {{config.name}}</title>
+<meta property="og:title" content="{{title}} - {{config.name}}"/>
+<meta name="twitter:title" content="{{title}} - {{config.name}}"/>
+
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+{{#if description}}
+<meta name="description" content="{{truncate description}}">
+<meta content="{{truncate description}}" property="og:description"></meta>
+<meta content="{{truncate description}}" name="twitter:description"></meta>
+{{else}}
+<meta name="description" content="{{config.slogan}}">
+<meta content="{{config.slogan}}" property="og:description"></meta>
+<meta content="{{config.slogan}}" property="twitter:description"></meta>
+{{/if}}
+
+<meta property="og:site_name" content="{{config.name}}"/>
+<meta name="twitter:domain" content="{{config.name}}"/>
+<meta property="article:publisher" content="{{config.social.facebook}}"/>
+
+{{#if imageUrl}}
+<meta property="og:image" content="{{imageUrl}}"/>
+<meta name="twitter:image" content="{{imageUrl}}"/>
+{{/if}}
+
+{{#ifCond tags '&&' tagsUrlSafe}}
+    {{#each tags}}
+        <meta property="article:tag" content="{{this}}"/>
+    {{/each}}
+{{/ifCond}}
