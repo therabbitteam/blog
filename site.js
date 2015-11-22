@@ -70,7 +70,7 @@ module.exports = {
       },
       "metalsmith-pagination": {
         "collections.blog": {
-          "perPage": 10,
+          "perPage": 5,
           "layout": "index.html",
           "first": "index.html",
           "noPageOne": true,
@@ -84,7 +84,7 @@ module.exports = {
         "handle": "tags",
         "path": "tag/:tag/index.html",
         "pathPage": "tag/:tag/:num/index.html",
-        "perPage": 10,
+        "perPage": 5,
         "layout": "index.html",
         "sortBy": "date",
         "reverse": true,
