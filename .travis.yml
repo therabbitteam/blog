@@ -5,7 +5,12 @@ script:
   - npm run production
   - npm run test
 after_success:
-  - ./deploy
+  - chmod +x deploy.sh
+deploy:
+  provider: script
+  script: ./deploy.sh
+  on:
+  	branch: master
 cache:
   directories:
     - node_modules
