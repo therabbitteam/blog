@@ -13,6 +13,9 @@ build:
         code: npm run production
     - npm-test
     - script:
+        name: run eslint
+        code: npm run lint
+    - script:
         name: copy build to the to-be-deployed directory
         code: cp -a ./. $WERCKER_OUTPUT_DIR
 deploy:

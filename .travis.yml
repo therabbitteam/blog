@@ -4,6 +4,7 @@ node_js:
 script:
   - npm run production
   - npm run test
+  - npm run lint
 after_success:
   - chmod +x deploy.sh
   - ./deploy.sh

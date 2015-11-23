@@ -12,7 +12,8 @@
     "production": "./node_modules/.bin/gulp --production",
     "watch": "./node_modules/.bin/gulp watch",
     "vendor": "./node_modules/.bin/gulp vendor",
-    "deploy": "surge -p ./build -d beta.rabbitlearn.com"
+    "deploy": "surge -p ./build -d beta.rabbitlearn.com",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "async": "^1.5.0",
@@ -20,6 +21,7 @@
     "babel-loader": "^5.3.2",
     "babel-runtime": "^5.8.29",
     "contentful-metalsmith": "^0.1.0",
+    "eslint": "^1.10.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-connect": "^2.2.0",
@@ -43,17 +45,17 @@
     "metalsmith-tags": "^1.0.0",
     "metalsmith-wordcloud": "0.0.3",
     "minimist": "^1.2.0",
+    "mocha": "^2.3.4",
     "moment": "^2.10.6",
     "request": "^2.66.0",
     "slug": "^0.9.1",
+    "surge": "^0.17.3",
     "webpack": "^1.12.1",
     "zombie": "^4.2.1"
   },
   "dependencies": {
     "font-awesome": "^4.4.0",
     "jquery": "^2.1.4",
-    "mocha": "^2.3.4",
-    "surge": "^0.17.3",
     "underscore.string": "^3.2.2"
   }
 }
