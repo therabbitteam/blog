@@ -5,7 +5,9 @@ build:
     - npm-install
     - script:
         name: install bower package
-        code: bower install
+        code: |
+          npm install -g bower
+          bower install
     - script:
         name: echo nodejs information
         code: |
