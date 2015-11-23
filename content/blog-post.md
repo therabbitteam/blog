@@ -4,6 +4,7 @@ collection: blog
 prismic:
   post:
     query: '[[:d = at(document.type, "posts")]]'
+    allPages: true
     collection:
       fileExtension: html
   author:
