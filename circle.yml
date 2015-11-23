@@ -3,5 +3,6 @@ machine:
     version: 4.2.2
 test:
   pre:
+    - bower install
     - npm run production
     - npm run lint
