@@ -1,46 +1,46 @@
-var _ = require('lodash');
-var Handlebars = require('handlebars');
+var _ = require('lodash')
+var Handlebars = require('handlebars')
 
 module.exports = function(context, options) {
   if (!context) {
-    console.error('No image provided');
-    return; 
+    console.error('No image provided')
+    return 
   }
   
-  var view = (_.has(options.hash, 'view')) ? options.hash.view : false;
-  var image = context.json.main;
+  var view = (_.has(options.hash, 'view')) ? options.hash.view : false
+  var image = context.json.main
 
   // Don't use upscale image from Prismic
   if (view && image.width > getViewSize(context, view).width) {
-    image = context.json.views[view];
+    image = context.json.views[view]
   }
 
-  var height = image.height;
-  var width = image.width;
-  var url = image.url;
-  var alt = image.alt;
+  var height = image.height
+  var width = image.width
+  var url = image.url
+  var alt = image.alt
 
   var result = '<img src="'+ url +'" height="' + height + '" width="'
-    + width + '" alt="' + alt + '" />';
+    + width + '" alt="' + alt + '" />'
 
-  return new Handlebars.SafeString(result);
-};
+  return new Handlebars.SafeString(result)
+}
 
 // Get Desire view size from image object
 function getViewSize(context, view) {
-  if (!view || view == 'main') {
-    var image = context.json.main;
+  if (!view || view === 'main') {
+    var image = context.json.main
 
-    return returnImageSize(image);
+    return returnImageSize(image)
   }
 
-   var views = context.json.views;
+   var views = context.json.views
 
   if (_.has(views, view)) {
-    return returnImageSize(views[view]);
+    return returnImageSize(views[view])
   }
 
-  throw new Error('Cannot find ' + view + ' view');
+  throw new Error('Cannot find ' + view + ' view')
 }
 
 // Return height and width

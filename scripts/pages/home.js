@@ -1,3 +1,3 @@
 export default function() {
-  window.console.log('Home page');
+  window.console.log('Home page')
 }

@@ -1,13 +1,13 @@
-module.exports = plugin;
+module.exports = plugin
 
 function plugin(opts) {
-  opts = opts || {};
+  opts = opts || {}
 
   return function (files, metalsmith, done) {
 
-    console.log(files);
-    console.log(metalsmith);
+    console.log(files)
+    console.log(metalsmith)
 
-    done();
+    done()
   }
 }
