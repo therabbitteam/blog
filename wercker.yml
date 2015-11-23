@@ -4,6 +4,11 @@ build:
   steps:
     - npm-install
     - script:
+        name: install bower package
+        code: |
+          npm install -g bower
+          bower install
+    - script:
         name: echo nodejs information
         code: |
           echo "node version $(node -v) running"
