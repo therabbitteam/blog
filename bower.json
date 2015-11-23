@@ -1,0 +1,22 @@
+{
+  "name": "rabbitlearn-blog",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Khoa Nguyen"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/therabbitteam/blog",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "social-likes": "~3.0.15"
+  }
+}
