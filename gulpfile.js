@@ -2,11 +2,9 @@ var path = require('path')
 var argv = require('minimist')(process.argv.slice(2))
 var gulp = require('gulp')
 var Metalsmith = require('metalsmith')
+var concat = require('gulp-concat')
 
 // Assets
-var sass = require('gulp-sass')
-var cssImport = require('gulp-cssimport')
-var autoprefixer = require('gulp-autoprefixer')
 var webpack = require('webpack')
 
 // Site
@@ -80,8 +78,10 @@ gulp.task('vendor', function() {
 })
 
 gulp.task('styles', function() {
-  var postcss = require("gulp-postcss")
-  var atImport = require("postcss-import")
+  var postcss = require('gulp-postcss')
+  var atImport = require('postcss-import')
+  var sass = require('gulp-sass')
+  var autoprefixer = require('gulp-autoprefixer')
 
   return gulp.src(path.join(__dirname, site.metalsmith.config.styleRoot, 'app.scss'))
     .pipe(sass({
@@ -154,7 +154,19 @@ gulp.task('webpack', function(callback) {
   })
 })
 
-gulp.task('scripts', ['webpack'])
+gulp.task('scripts', function() {
+  // TODO: Uglify javascript
+
+  return gulp.src([
+    'sources/js/jquery.min.js',
+    'sources/js/skel.min.js',
+    'sources/js/util.js',
+    'sources/js/main.js',
+    'bower_components/social-likes/social-likes.min.js'
+  ])
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./sources/assets'))
+})
 
 gulp.task('watch', ['default'], function() {
   gulp.watch(['gulpfile.js', 'site.js'], ['default'])
@@ -180,4 +192,4 @@ gulp.task('connect', function() {
   })
 })
 
-gulp.task('default', ['vendor', 'styles', 'metalsmith'])
+gulp.task('default', ['vendor', 'styles', 'scripts', 'metalsmith'])
