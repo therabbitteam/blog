@@ -5,6 +5,7 @@ var Metalsmith = require('metalsmith')
 
 // Assets
 var sass = require('gulp-sass')
+var cssImport = require('gulp-cssimport')
 var autoprefixer = require('gulp-autoprefixer')
 var webpack = require('webpack')
 
@@ -17,7 +18,6 @@ var Handlebars = require('handlebars')
 require('./lib/handlebars')(Handlebars)
 
 // Metalsmith
-// Common
 var connect = require('gulp-connect')
 
 // Configuration
@@ -74,12 +74,15 @@ gulp.task('metalsmith', function(callback) {
 })
 
 gulp.task('vendor', function() {
-  return gulp.src(site.vendor)
+  gulp.src(site.vendor)
     .pipe(gulp.dest(path.join(__dirname, site.metalsmith.config.assetRoot, 'vendor')))
     .pipe(connect.reload())
 })
 
 gulp.task('styles', function() {
+  var postcss = require("gulp-postcss")
+  var atImport = require("postcss-import")
+
   return gulp.src(path.join(__dirname, site.metalsmith.config.styleRoot, 'app.scss'))
     .pipe(sass({
       sourceComments: args.production ? false : true,
@@ -88,6 +91,7 @@ gulp.task('styles', function() {
       errLogToConsole: true,
       onError: console.log
     }))
+    .pipe(postcss([atImport]))
     .pipe(autoprefixer({
       browsers: site.styles.prefix,
       cascade: false
