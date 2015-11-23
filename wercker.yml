@@ -3,11 +3,7 @@ box: node
 build:
   steps:
     - npm-install
-    - script:
-        name: install bower package
-        code: |
-          npm install -g bower
-          bower install
+    - greatbeyond/bower-install@0.5.8
     - script:
         name: echo nodejs information
         code: |
