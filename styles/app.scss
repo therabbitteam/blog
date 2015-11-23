@@ -31,3 +31,21 @@ header p {
   font-size: 1.1em;
   letter-spacing: 0;
 }
+
+// Footer setting
+
+.post > footer.blog-post {
+  flex-direction: row;
+  margin: 1.5em 0;
+
+  .wrapper {
+    order: 0;
+    flex: 1;
+  }
+
+  ul.stats {
+    margin: 0;
+    display: flex;
+    flex-grow: inherit;
+  }
+}
