@@ -4,4 +4,4 @@ machine:
 test:
   pre:
     - npm run production
-    - npm install -g mocha
+    - npm run lint

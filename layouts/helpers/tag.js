@@ -1,7 +1,7 @@
-var slugify = require("slug");
+var slugify = require('slug')
 
 module.exports = function(tag) {
-  if (!tag) return;
+  if (!tag) return
 
-  return '<a href="/tag/' + slugify(tag) + '" class="icon fa-tag" />' + tag + '</a>';
+  return '<a href="/tag/' + slugify(tag) + '" class="icon fa-tag" />' + tag + '</a>'
 }

@@ -3,3 +3,4 @@ languages:
 exclude_paths:
   - test/**/*
   - sources/js/*
+  - scripts/vendor/**/*
