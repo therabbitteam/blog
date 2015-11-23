@@ -2,7 +2,11 @@ var _ = require('lodash');
 var Handlebars = require('handlebars');
 
 module.exports = function(context, options) {
-
+  if (!context) {
+    console.error('No image provided');
+    return; 
+  }
+  
   var view = (_.has(options.hash, 'view')) ? options.hash.view : false;
   var image = context.json.main;
 

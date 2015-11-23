@@ -16,9 +16,11 @@
               {{{author this.data.author ../prismic/author }}}
             </div>
           </header>
+          {{#if this.data.image}}
           <a href="{{linkTo this}}" class="image featured">
             {{image this.data.image view="wide"}}
           </a>
+          {{/if}}
           <p>{{{truncate this.data.body.html}}}</p>
           <footer>
             <ul class="actions">
