@@ -3,3 +3,4 @@ sources/*
 build/*
 scripts/vendor/*
 bower_components/*
+.old/*

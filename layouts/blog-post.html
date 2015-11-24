@@ -5,7 +5,7 @@
   <article class="post">
     <header>
       <div class="title">
-        <h2><a href="/{{this.path}}">{{{ this.data.title.html }}}</a></h2>
+        <h2><a href="/{{../../this.path}}/">{{{ this.data.title.html }}}</a></h2>
         <p>{{{ this.data.description.html }}}</p>
       </div>
       <div class="meta">
@@ -20,7 +20,9 @@
       {{image this.data.image}}
     </a>
     {{/if}}
-    <p>{{{this.data.body.html}}}</p>
+    <div id="content">
+    {{{this.data.body.html}}}
+    </div>
 
     <ul class="related-posts">
       <h3>{{../../lang.related-posts}}</h3>

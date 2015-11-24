@@ -3,9 +3,11 @@ var argv = require('minimist')(process.argv.slice(2))
 var gulp = require('gulp')
 var Metalsmith = require('metalsmith')
 var concat = require('gulp-concat')
-
-// Assets
-var webpack = require('webpack')
+var mode = require('gulp-mode')({
+  modes: ['production', 'development'],
+  default: 'development',
+  verbose: true
+})
 
 // Site
 var site = require('./site')
@@ -82,16 +84,26 @@ gulp.task('styles', function() {
   var atImport = require('postcss-import')
   var sass = require('gulp-sass')
   var autoprefixer = require('gulp-autoprefixer')
+  var pixrem = require('pixrem')
+  var cssnano = require('cssnano')
+
+  /*
+   * PostCSS plugins section
+   */
+  var postCSS = [atImport, pixrem]
+  var postCSS_production = [cssnano]
+  if (args.production) {
+    postCSS.concat(postCSS_production)
+  }
 
   return gulp.src(path.join(__dirname, site.metalsmith.config.styleRoot, 'app.scss'))
     .pipe(sass({
       sourceComments: args.production ? false : true,
-      outputStyle: args.production ? 'compressed' : 'expanded',
       includePaths: site.styles.include,
       errLogToConsole: true,
       onError: console.log
     }))
-    .pipe(postcss([atImport]))
+    .pipe(postcss(postCSS))
     .pipe(autoprefixer({
       browsers: site.styles.prefix,
       cascade: false
@@ -100,71 +112,12 @@ gulp.task('styles', function() {
     .pipe(connect.reload())
 })
 
-gulp.task('webpack', function(callback) {
-  var webpackPlugins = [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(args.production ? 'production' : 'development'),
-      }
-    })
-  ]
-
-  if (args.production) {
-    webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
-  }
-
-  var webpackConfig = {
-    context: path.join(__dirname, site.metalsmith.config.scriptRoot),
-    entry: {
-      app: './app',
-      vendor: ['jquery']
-    },
-    output: {
-      path: path.join(__dirname, site.metalsmith.config.assetRoot, 'assets'),
-      filename: '[name].js'
-    },
-    resolveLoader: {
-      root: path.join(__dirname, 'node_modules')
-    },
-    module: {
-      loaders: [
-        {
-          test: /\.jsx?$/,
-          exclude: /(node_modules|bower_components)/,
-          loader: 'babel?optional[]=runtime&stage=0'
-        }
-      ]
-    },
-    plugins: webpackPlugins
-  }
-
-  webpack(webpackConfig, function(err) {
-    if (err) {
-      return callback(err)
-    }
-
-    gulp.src('./').pipe(connect.reload())
-
-    callback()
-  })
-})
-
 gulp.task('scripts', function() {
-  // TODO: Uglify javascript
+  var uglify = require('gulp-uglify')
 
-  return gulp.src([
-    'sources/js/jquery.min.js',
-    'sources/js/skel.min.js',
-    'sources/js/util.js',
-    'sources/js/main.js',
-    'bower_components/social-likes/social-likes.min.js'
-  ])
+  return gulp.src(site.scripts)
     .pipe(concat('app.js'))
+    .pipe(mode.production(uglify()))
     .pipe(gulp.dest('./sources/assets'))
 })
 

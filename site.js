@@ -3,7 +3,13 @@ var path = require('path')
 
 module.exports = {
   'vendor': [],
-  'scripts': {},
+  'scripts': [
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/skel/dist/skel.min.js',
+    'sources/js/util.js',
+    'sources/js/main.js',
+    'bower_components/social-likes/social-likes.min.js'
+  ],
   'styles': {
     'prefix': ['> 1%', 'last 2 versions', 'IE >= 9'],
     'include': []
@@ -11,7 +17,7 @@ module.exports = {
   'metalsmith': {
     'metadata': {
       'site': {
-        'url': 'http://beta.rabbitlearn.com',
+        'url': 'http://beta.rabbitlearn.com'
       }
     },
     'config': {
