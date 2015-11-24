@@ -82,6 +82,7 @@ gulp.task('vendor', function() {
 gulp.task('styles', function() {
   var postcss = require('gulp-postcss')
   var atImport = require('postcss-import')
+  var atImportUrl = require('postcss-import-url')
   var sass = require('gulp-sass')
   var autoprefixer = require('gulp-autoprefixer')
   var pixrem = require('pixrem')
@@ -90,10 +91,10 @@ gulp.task('styles', function() {
   /*
    * PostCSS plugins section
    */
-  var postCSS = [atImport, pixrem]
+  var postCSS = [atImport, atImportUrl, pixrem]
   var postCSS_production = [cssnano]
   if (args.production) {
-    postCSS.concat(postCSS_production)
+    postCSS = postCSS.concat(postCSS_production)
   }
 
   return gulp.src(path.join(__dirname, site.metalsmith.config.styleRoot, 'app.scss'))
