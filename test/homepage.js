@@ -79,6 +79,26 @@ describe('home page', function() {
     })
   })
 
+  describe('javascript is running', function() {
+    it('should open menu', function() {
+      browser.clickLink('a[href="#menu"]', function(e, b) {
+        b.assert.hasClass('body', 'is-menu-visible')
+      })
+    })
+
+    it('should expand search form', function() {
+      browser.clickLink('a[href="#search"]', function(e, b) {
+        b.assert.hasClass('form#search', 'visible')
+      })
+    })
+  })
+
+  describe('pagination should working', function() {
+    it('should show pagination')
+  })
+
+
+
   after(function(done) {
     connect.serverClose()
     done()
