@@ -17,7 +17,7 @@ module.exports = {
   'metalsmith': {
     'metadata': {
       'site': {
-        'url': 'http://beta.rabbitlearn.com',
+        'url': 'http://beta.rabbitlearn.com'
       }
     },
     'config': {
