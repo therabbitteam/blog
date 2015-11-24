@@ -1,6 +1,6 @@
 @import "main.scss";
 @import "../bower_components/social-likes/social-likes_birman.css";
-
+@import "https://fonts.googleapis.com/css?family=Roboto:400,700,900,700italic|Source+Sans+Pro:400,700,900&subset=latin,vietnamese";
 .image.featured img {
   width: 100%;
   height: auto;
@@ -27,13 +27,18 @@ ul.related-posts {
   }
 }
 
-header p {
-  font-size: 1.1em;
-  letter-spacing: 0;
+#tags-cloud {
+  line-height: 2em;
 }
-
 // Footer setting
+.post > header {
+  margin-bottom: 2em;
 
+  p {
+    font-size: 1.1em;
+    letter-spacing: 0;
+  }
+}
 .post > footer.blog-post {
   flex-direction: row;
   margin: 1.5em 0;
