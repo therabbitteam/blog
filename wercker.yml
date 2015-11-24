@@ -3,7 +3,10 @@ box: node
 build:
   steps:
     - npm-install
-    - greatbeyond/bower-install@0.5.8
+    - script:
+        name: install bower
+        code: |
+          npm install -g bower && bower install --allow-root
     - script:
         name: echo nodejs information
         code: |
@@ -20,7 +23,6 @@ build:
         name: copy build to the to-be-deployed directory
         code: cp -a ./. $WERCKER_OUTPUT_DIR
 deploy:
-  box: nodesource/trusty
   steps:
     - script:
       name: Install Surge
