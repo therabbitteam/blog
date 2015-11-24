@@ -157,13 +157,7 @@ gulp.task('webpack', function(callback) {
 gulp.task('scripts', function() {
   // TODO: Uglify javascript
 
-  return gulp.src([
-    'sources/js/jquery.min.js',
-    'sources/js/skel.min.js',
-    'sources/js/util.js',
-    'sources/js/main.js',
-    'bower_components/social-likes/social-likes.min.js'
-  ])
+  return gulp.src(site.scripts)
     .pipe(concat('app.js'))
     .pipe(gulp.dest('./sources/assets'))
 })

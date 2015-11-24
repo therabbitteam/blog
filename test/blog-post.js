@@ -56,7 +56,9 @@ describe('blog post', function() {
 
     it('should use small author avatar')
 
-    it('should have date')
+    it('should have date', function() {
+      browser.assert.elements('.meta time', 1)
+    })
   })
 
   describe('content section', function() {
