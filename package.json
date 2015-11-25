@@ -54,6 +54,7 @@
     "postcss-import-url": "^1.0.0",
     "slug": "^0.9.1",
     "surge": "^0.17.3",
+    "vietnamese-unicode-toolkit": "0.0.1",
     "zombie": "^4.2.1"
   },
   "dependencies": {
