@@ -1,17 +1,30 @@
-box: node
+box: node:4.2.2
 
+dev:
+  steps:
+    - npm-install
+    - script:
+        name: install dependency
+        code: |
+          npm install -g bower && bower install --allow-root
+    - script:
+        name: Setup dev environment
+        code: |
+          npm start
 build:
   steps:
     - npm-install
     - script:
-        name: install bower
+        name: install bower & gulp
         code: |
           npm install -g bower && bower install --allow-root
+          npm install -g gulp
     - script:
         name: echo nodejs information
         code: |
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
+          echo "$(gulp -v)"
     - script:
         name: run metalsmith build
         code: npm run production

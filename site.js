@@ -114,6 +114,10 @@ module.exports = {
         'source': './sources',
         'destination': './'
       },
+      'metalsmith-broken-link-checker': {
+        'allowRedirect': true,
+        'warn': true
+      },
       'metalsmith-html-minifier': {
         '_metalsmith_if': 'production',
         'removeAttributeQuotes': false,
