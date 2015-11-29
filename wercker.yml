@@ -19,10 +19,10 @@ dev:
 build:
   steps:
     - npm-install
+    - thangngoc89/bower-install@0.5.8
     - script:
         name: install bower & gulp
         code: |
-          npm install -g bower && bower install --allow-root
           npm install -g gulp
     - script:
         name: echo nodejs information
