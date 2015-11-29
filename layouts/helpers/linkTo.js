@@ -15,6 +15,6 @@ module.exports = function(object) {
   if (object.type === 'author') {
     var name = object.data.name.json.blocks[0].text
 
-    return '/' + slugify(name).toLowerCase()
+    return '/author/' + slugify(name).toLowerCase()
   }
 }
