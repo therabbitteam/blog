@@ -1,5 +1,7 @@
 var linkTo = require('./layouts/helpers/linkTo')
-
+var config = {
+  pagination: 5
+}
 module.exports = {
   'vendor': [],
   'scripts': [
@@ -41,6 +43,7 @@ module.exports = {
         }
       },
       './lib/map-data-to-file-metadata': {},
+      './debug': {},
       'metalsmith-markdown': {
         'smartypants': true,
         'smartLists': true,
@@ -76,7 +79,7 @@ module.exports = {
       },
       'metalsmith-pagination': {
         'collections.blog': {
-          'perPage': 5,
+          'perPage': config.pagination,
           'layout': 'index.html',
           'first': 'index.html',
           'noPageOne': true,
@@ -90,7 +93,7 @@ module.exports = {
         'handle': 'tags',
         'path': 'tag/:tag/index.html',
         'pathPage': 'tag/:tag/:num/index.html',
-        'perPage': 5,
+        'perPage': config.pagination,
         'layout': 'index.html',
         'sortBy': 'date',
         'reverse': true,
@@ -99,6 +102,15 @@ module.exports = {
           'mode': 'rfc3986'
         }
       },
+      // 'metalsmith-tags': {
+      //   'handle': 'author',
+      //   'path': 'author/:tag/index.html',
+      //   'layout': 'index.html',
+      //   'skipMetadata': false,
+      //   'slug': {
+      //     'mode': 'rfc3986'
+      //   }
+      // },
       'metalsmith-wordcloud': {
         category: 'tags',
         reverse: false,
@@ -115,7 +127,7 @@ module.exports = {
         'destination': './'
       },
       'metalsmith-broken-link-checker': {
-        'allowRedirect': true,
+        'allowRedirects': true,
         'warn': true
       },
       'metalsmith-html-minifier': {
