@@ -6,3 +6,4 @@ sources/assets/*.css
 sources/vendor
 .tmp
 /bower_components
+/lib/mtags
