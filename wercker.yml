@@ -7,10 +7,15 @@ dev:
         name: install dependency
         code: |
           npm install -g bower && bower install --allow-root
-    - script:
-        name: Setup dev environment
-        code: |
-          npm start
+    # - script:
+    #     name: Setup dev environment
+    #     code: |
+    #       npm start
+    - internal/shell:
+      code: |
+        # some code to automatically run in your shell session
+        # before you start interacting
+        npm start
 build:
   steps:
     - npm-install
