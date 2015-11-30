@@ -43,7 +43,6 @@ module.exports = {
         }
       },
       './lib/map-data-to-file-metadata': {},
-      './debug': {},
       'metalsmith-markdown': {
         'smartypants': true,
         'smartLists': true,
