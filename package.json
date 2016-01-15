@@ -45,7 +45,7 @@
     "metalsmith-prismic": "^0.8.2",
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-related": "0.0.5",
-    "metalsmith-tags": "^1.1.0",
+    "metalsmith-tags": "^1.2.0",
     "metalsmith-wordcloud": "0.0.3",
     "minimist": "^1.2.0",
     "mocha": "^2.3.4",
