@@ -60,6 +60,6 @@
   },
   "dependencies": {
     "font-awesome": "^4.5.0",
-    "underscore.string": "^3.2.2"
+    "underscore.string": "^3.2.3"
   }
 }
