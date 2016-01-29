@@ -42,7 +42,7 @@
     "metalsmith-metadata": "0.0.4",
     "metalsmith-pagination": "^1.4.0",
     "metalsmith-permalinks": "^0.4.1",
-    "metalsmith-prismic": "^0.8.2",
+    "metalsmith-prismic": "^0.9.0",
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-related": "0.0.5",
     "metalsmith-tags": "^1.1.0",
